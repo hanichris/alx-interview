@@ -14,7 +14,7 @@ def pascal_triangle(n):
     """
     result = []
 
-    if n <= 0:
+    if type(n) is not int or n <= 0:
         return result
 
     for row in range(n):
