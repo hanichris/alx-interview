@@ -1,2 +1,2 @@
-# alx-interview
+# Interview Problems
 Technical Interviews
