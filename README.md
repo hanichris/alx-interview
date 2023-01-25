@@ -1,2 +1,2 @@
 # Interview Problems
-Technical Interviews
+My solution to various types of interview questions.
