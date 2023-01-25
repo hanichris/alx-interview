@@ -18,9 +18,12 @@ def pascal_triangle(n):
         return result
 
     for row in range(n):
-        temp = [1]
-        for j in range(1, row + 1):
-            _x = int(temp[j-1] * ((row - j + 1) / j))
-            temp.append(_x)
+        temp = []
+        for j in range(row + 1):
+            # _x = int(temp[j-1] * ((Decimal(row - j + 1)) / Decimal(j)))
+            if j == 0 or j == row:
+                temp.append(1)
+            elif row > 0 and j > 0:
+                temp.append(result[row - 1][j - 1] + result[row - 1][j])
         result.append(temp)
     return result
