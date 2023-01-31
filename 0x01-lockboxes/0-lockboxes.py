@@ -31,5 +31,6 @@ def canUnlockAll(boxes):
         for new_key in box:
             if opened[new_key] is False:
                 queue.append(new_key)
+                opened[new_key] = True
 
     return False if False in opened else True
