@@ -33,6 +33,8 @@ def canUnlockAll(boxes):
     queue.extend(boxes[0])
     while queue:
         key = queue.popleft()
+        if processed[key] is True:
+            continue
         processed[key] = True
         box = boxes[key]
         for new_key in box:
