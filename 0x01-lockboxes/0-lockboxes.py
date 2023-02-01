@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Solve the lockboxes interview problem."""
+from collections import deque
 
 
 def canUnlockAll(boxes):
@@ -23,7 +24,7 @@ def canUnlockAll(boxes):
 
     # Initialize an empty queue to keep track of the
     # keys to each box.
-    queue = []
+    queue = deque()
 
     # Mark the first box as visited and store all its keys in
     # the queue.
@@ -31,7 +32,7 @@ def canUnlockAll(boxes):
     processed[0] = True
     queue.extend(boxes[0])
     while queue:
-        key = queue.pop(0)
+        key = queue.popleft()
         processed[key] = True
         box = boxes[key]
         for new_key in box:
