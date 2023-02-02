@@ -34,7 +34,7 @@ def canUnlockAll(boxes):
     queue.extend(boxes[0])
     while queue:
         key = queue.popleft()
-        if key >= boxes_len or processed[key] is True:
+        if processed[key] is True:
             continue
         processed[key] = True
         box = boxes[key]
