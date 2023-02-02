@@ -13,14 +13,15 @@ def canUnlockAll(boxes):
     Return:
         boolean.
     """
+    boxes_len = len(boxes)
     # Check for when array of boxes is empty.
-    if len(boxes) == 0:
+    if boxes_len == 0:
         return False
 
     # Initially, mark all the boxes as not visited
     # and not processed.
-    visited = [False] * len(boxes)
-    processed = [False] * len(boxes)
+    visited = [False] * boxes_len
+    processed = [False] * boxes_len
 
     # Initialize an empty queue to keep track of the
     # keys to each box.
@@ -33,13 +34,13 @@ def canUnlockAll(boxes):
     queue.extend(boxes[0])
     while queue:
         key = queue.popleft()
-        if processed[key] is True:
+        if key >= boxes_len or processed[key] is True:
             continue
         processed[key] = True
         box = boxes[key]
-        for new_key in box:
-            if visited[new_key] is False:
-                queue.append(new_key)
-                visited[new_key] = True
+        for other_key in box:
+            if visited[other_key] is False:
+                queue.append(other_key)
+                visited[other_key] = True
 
     return False not in processed
