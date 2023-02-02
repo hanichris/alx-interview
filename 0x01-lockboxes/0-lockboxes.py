@@ -39,6 +39,8 @@ def canUnlockAll(boxes):
         processed[key] = True
         box = boxes[key]
         for other_key in box:
+            if other_key >= boxes_len:
+                continue
             if visited[other_key] is False:
                 queue.append(other_key)
                 visited[other_key] = True
