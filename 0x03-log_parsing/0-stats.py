@@ -35,17 +35,16 @@ if __name__ == "__main__":
         for line in sys.stdin:
             line = line.split()
 
-            if len(line) > 2:
-                line_count += 1
-                file_size += int(line[-1])
-                status_code = line[-2]
+            line_count += 1
+            file_size += int(line[-1])
+            status_code = line[-2]
 
-                if status_code in status_codes:
-                    status_codes[status_code] += 1
+            if status_code in status_codes:
+                status_codes[status_code] += 1
 
-                if line_count == 10:
-                    print_stats(status_codes, file_size)
-                    line_count = 0
+            if line_count == 10:
+                print_stats(status_codes, file_size)
+                line_count = 0
 
     finally:
         print_stats(status_codes, file_size)
