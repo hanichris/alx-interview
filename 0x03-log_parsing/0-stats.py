@@ -51,4 +51,3 @@ if __name__ == "__main__":
 
     finally:
         print_stats(status_codes, file_size)
-
