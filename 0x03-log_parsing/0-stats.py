@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Solution for computing log file metrics."""
+
 import sys
 from typing import Dict
 
