@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Solution for computing log file metrics."""
 import sys
+from typing import Dict
 
 
 file_size = 0
@@ -17,7 +18,7 @@ status_codes = {
 }
 
 
-def print_stats(status_codes: dict, file_size: int = 0) -> None:
+def print_stats(status_codes: Dict[str, int], file_size: int = 0) -> None:
     """Print out stats to `stdout`.
 
     Args:
