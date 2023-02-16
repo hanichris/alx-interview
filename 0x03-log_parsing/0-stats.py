@@ -17,9 +17,10 @@ status_codes = {
     "500": 0
 }
 
+
 def print_stats(status_codes: Dict[str, int], file_size: int = 0) -> None:
     """Print out stats to `stdout`.
-    
+
     Args:
         status_codes (dict): maps frequency of status codes.
         file_size (int): overall file size seen.
@@ -34,7 +35,7 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             line = line.split()
-            
+
             if len(line) > 2:
                 line_count += 1
                 file_size += int(line[-1])
