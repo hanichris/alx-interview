@@ -29,6 +29,7 @@ def print_stats(status_codes, file_size=0):
         if count > 0:
             print("{}: {}".format(status, count))
 
+
 try:
     for line in sys.stdin:
         line = line.split()
