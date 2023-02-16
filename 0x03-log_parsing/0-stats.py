@@ -24,11 +24,10 @@ def print_stats(status_codes, file_size=0):
         status_codes (dict): maps frequency of status codes.
         file_size (int): overall file size seen.
     """
-    print(f"File size: {file_size}")
+    print("File size: {}".format(file_size))
     for status, count in sorted(status_codes.items()):
         if count > 0:
-            print(f"{status}: {count}")
-
+            print("{}: {}".format(status, count))
 
 try:
     for line in sys.stdin:
