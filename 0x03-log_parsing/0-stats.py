@@ -1,22 +1,6 @@
 #!/usr/bin/python3
-
+"""Script to compute and print out metrics."""
 import sys
-
-
-def print_stats(dict_sc, total_file_size):
-    """
-    Method to print
-    Args:
-        dict_sc: dict of status codes
-        total_file_size: total of the file
-    Returns:
-        Nothing
-    """
-
-    print("File size: {}".format(total_file_size))
-    for key, val in sorted(dict_sc.items()):
-        if val > 0:
-            print("{}: {}".format(key, val))
 
 
 file_size = 0
@@ -32,22 +16,35 @@ status_codes = {
     "500": 0
 }
 
-if __name__ == "__main__":
-    try:
-        for line in sys.stdin:
-            line = line.split()
 
-            if len(line) > 2:
-                line_count += 1
-                file_size += int(line[-1])
-                status_code = line[-2]
+def print_stats(status_codes, file_size=0):
+    """Print out stats to `stdout`.
 
-                if status_code in status_codes:
-                    status_codes[status_code] += 1
+    Args:
+        status_codes (dict): maps frequency of status codes.
+        file_size (int): overall file size seen.
+    """
+    print(f"File size: {file_size}")
+    for status, count in sorted(status_codes.items()):
+        if count > 0:
+            print(f"{status}: {count}")
 
-                if line_count == 10:
-                    print_stats(status_codes, file_size)
-                    line_count = 0
 
-    finally:
-        print_stats(status_codes, file_size)
+try:
+    for line in sys.stdin:
+        line = line.split()
+
+        if len(line) > 2:
+            line_count += 1
+            file_size += int(line[-1])
+            status_code = line[-2]
+
+            if status_code in status_codes:
+                status_codes[status_code] += 1
+
+            if line_count == 10:
+                print_stats(status_codes, file_size)
+                line_count = 0
+
+finally:
+    print_stats(status_codes, file_size)
