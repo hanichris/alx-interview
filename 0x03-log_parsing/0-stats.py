@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import sys
-from typing import Dict
 
 
 file_size = 0
@@ -18,7 +17,7 @@ status_codes = {
 }
 
 
-def print_stats(status_codes: Dict[str, int], file_size: int = 0) -> None:
+def print_stats(status_codes, file_size=0):
     """Print out stats to `stdout`.
 
     Args:
