@@ -11,3 +11,5 @@ The N queens puzzle is the challenge of placing N non-attacking queens on an NxN
     * Format: see example
     * You don’t have to print the solutions in a specific order
 * You are only allowed to import the sys module
+## Approach
+The N queens falls into a category of problems termed as ``constraint-satisfaction problems``. These are types of problems with many candidate solutions, the vast majority of which don't satsify the given constraints. ``BACKTRACKING`` is a problem solving techinque the tackles this class of problems without trying all the possibilities. It incrementally builds candidates to solutions, and abandons a candidate, i.e, backtracks as soon as it determines that the candidate cannot possibly be completed to a valid solution.
