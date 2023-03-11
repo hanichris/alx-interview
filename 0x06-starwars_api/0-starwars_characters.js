@@ -19,13 +19,13 @@ const options = {
 request(options, (err, res, body) => {
   if (!err) {
     const characters = JSON.parse(body).characters;
-    displayCharacters(characters).
-    then(result => {
-      for (const name of result) {
-        console.log(name);
-      }
-    }).
-    catch(error => {console.log(error)});
+    displayCharacters(characters)
+      .then(result => {
+        for (const name of result) {
+          console.log(name);
+        }
+      })
+      .catch(error => { console.log(error); });
   }
 });
 
@@ -37,7 +37,7 @@ const displayCharacters = async people => {
         if (err) {
           console.error(err);
           reject(err);
-        }else {
+        } else {
           resolve(JSON.parse(body).name);
         }
       });
