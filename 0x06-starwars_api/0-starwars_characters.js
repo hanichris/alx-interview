@@ -19,12 +19,23 @@ const options = {
 request(options, (err, res, body) => {
   if (!err) {
     const characters = JSON.parse(body).characters;
-    for (const element of characters) {
-      request(element, (err, res, body) => {
-        if (!err) {
-          console.log(JSON.parse(body).name);
-        }
-      });
-    }
+    displayCharacters(characters).
+    then(result => {console.log(result)}).
+    catch(error => {console.log(error)});
   }
 });
+
+const displayCharacters = async people => {
+  for (const person of people) {
+    data = await new Promise((resolve, reject) => {
+      request(person, (err, res, body) => {
+        if (err) {
+          console.error(err);
+          reject(err);
+        }else {
+          resolve(JSON.parse(body).name);
+        }
+      });
+    })
+  }
+};
