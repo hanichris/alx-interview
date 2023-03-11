@@ -29,10 +29,10 @@ request(options, (err, res, body) => {
   }
 });
 
-const displayCharacters = async people => {
+const displayCharacters = people => {
   const data = [];
   for (const person of people) {
-    data.push(await new Promise((resolve, reject) => {
+    data.push(new Promise((resolve, reject) => {
       request(person, (err, res, body) => {
         if (err) {
           console.error(err);
