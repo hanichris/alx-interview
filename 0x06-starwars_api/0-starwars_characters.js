@@ -17,6 +17,10 @@ const options = {
 };
 
 request(options, (err, res, body) => {
-  let json = JSON.parse(body).characters;
-  console.log(json);
+  let characters = JSON.parse(body).characters;
+  characters.forEach(element => {
+    request(element, (err, res, body) => {
+      console.log(JSON.parse(body).name);
+    })
+  });
 })
