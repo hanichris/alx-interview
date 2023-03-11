@@ -17,6 +17,6 @@ const options = {
 };
 
 request(options, (err, res, body) => {
-  let json = JSON.parse(body);
+  let json = JSON.parse(body).characters;
   console.log(json);
 })
