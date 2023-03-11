@@ -18,9 +18,9 @@ const options = {
 
 request(options, (err, res, body) => {
   let characters = JSON.parse(body).characters;
-  characters.forEach(element => {
+  for (const element of characters) {
     request(element, (err, res, body) => {
       console.log(JSON.parse(body).name);
     })
-  });
-})
+  }
+});
