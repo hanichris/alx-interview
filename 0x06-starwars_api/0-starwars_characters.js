@@ -20,7 +20,11 @@ request(options, (err, res, body) => {
   if (!err) {
     const characters = JSON.parse(body).characters;
     displayCharacters(characters).
-    then(result => {console.log(result)}).
+    then(result => {
+      for (const name of result) {
+        console.log(name);
+      }
+    }).
     catch(error => {console.log(error)});
   }
 });
