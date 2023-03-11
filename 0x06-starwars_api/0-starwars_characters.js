@@ -29,7 +29,7 @@ request(options, (err, res, body) => {
   }
 });
 
-const displayCharacters = people => {
+const displayCharacters = (people) => {
   const data = [];
   for (const person of people) {
     data.push(new Promise((resolve, reject) => {
