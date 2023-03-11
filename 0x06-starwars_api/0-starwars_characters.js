@@ -38,4 +38,5 @@ const displayCharacters = async people => {
       });
     })
   }
+  return data;
 };
