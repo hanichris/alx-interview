@@ -30,7 +30,7 @@ request(options, (err, res, body) => {
 });
 
 const displayCharacters = async people => {
-  data = [];
+  const data = [];
   for (const person of people) {
     data.push(await new Promise((resolve, reject) => {
       request(person, (err, res, body) => {
