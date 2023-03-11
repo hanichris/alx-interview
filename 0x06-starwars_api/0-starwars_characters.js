@@ -7,6 +7,16 @@ if (process.argv.length !== 3) {
 }
 
 const movieId = process.argv[2]
-request(`https://swapi-api.alx-tools.com/api/films/${movieId}`, (err, res, body) => {
-  console.log(body);
+const options = {
+  url: `https://swapi-api.alx-tools.com/api/films/${movieId}`,
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+    'Accept-charset': 'utf-8'
+  }
+};
+
+request(options, (err, res, body) => {
+  let json = JSON.parse(body);
+  console.log(json);
 })
