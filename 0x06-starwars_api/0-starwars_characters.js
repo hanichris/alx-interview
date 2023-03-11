@@ -29,10 +29,10 @@ request(options, (err, res, body) => {
   }
 });
 
-function displayCharacters(people) {
+const displayCharacters = async people => {
   const data = [];
   for (const person of people) {
-    data.push(new Promise((resolve, reject) => {
+    data.push(await new Promise((resolve, reject) => {
       request(person, (err, res, body) => {
         if (err) {
           console.error(err);
@@ -44,4 +44,4 @@ function displayCharacters(people) {
     }));
   }
   return data;
-}
+};
