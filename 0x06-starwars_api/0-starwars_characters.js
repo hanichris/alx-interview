@@ -29,7 +29,7 @@ request(options, (err, res, body) => {
   }
 });
 
-const displayCharacters = (people) => {
+function displayCharacters(people) {
   const data = [];
   for (const person of people) {
     data.push(new Promise((resolve, reject) => {
@@ -44,4 +44,4 @@ const displayCharacters = (people) => {
     }));
   }
   return data;
-};
+}
