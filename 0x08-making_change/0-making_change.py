@@ -14,7 +14,9 @@ def makeChange(coins, total):
     """
     @lru_cache(None)
     def dfs(rem):
-        if rem <= 0:
+        if rem < 0:
+            return -1
+        if rem == 0:
             return 0
         min_cost = float('inf')
         for coin in coins:
