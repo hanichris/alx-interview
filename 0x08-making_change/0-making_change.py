@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module to determine the fewest number of coins to meet the target."""
-import sys
+from functools import lru_cache
 
 
 def makeChange(coins, total):
@@ -12,12 +12,14 @@ def makeChange(coins, total):
     Return:
         int: number of coins
     """
-    if total <= 0:
-        return 0
-    change = [sys.maxsize] * (total + 1)
-    change[0] = 0
-
-    for coin in coins:
-        for i in range(coin, total + 1):
-            change[i] = min(change[i], change[i - coin] + 1)
-    return change[total] if change[total] != sys.maxsize else -1
+    @lru_cache(None)
+    def dfs(rem):
+        if rem <= 0:
+            return 0
+        min_cost = float('inf')
+        for coin in coins:
+            res = dfs(rem - coin)
+            if res != -1:
+                min_cost = min(min_cost, res + 1)
+        return min_cost if min_cost != float('inf') else -1
+    return dfs(total)
