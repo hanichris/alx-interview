@@ -14,10 +14,21 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
-    change = [sys.maxsize] * (total + 1)
-    change[0] = 0
-
-    for coin in coins:
-        for i in range(coin, total + 1):
-            change[i] = min(change[i], change[i - coin] + 1)
-    return change[total] if change[total] != sys.maxsize else -1
+    coins.sort(reverse=True)
+    coin_count = 0
+    for i in coins:
+        if total % i == 0:
+            coin_count += int(total / i)
+            return coin_count
+        if total - i >= 0:
+            if int(total / i) > 1:
+                coin_count += int(total / i)
+                total = total % i
+            else:
+                coin_count += 1
+                total -= i
+                if total == 0:
+                    break
+    if total > 0:
+        return -1
+    return coin_count
