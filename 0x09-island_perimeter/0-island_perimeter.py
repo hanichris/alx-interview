@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Compute the perimeter of the island in the grid."""
-from typing import List
 
 
-def island_perimeter(grid: List[List]) -> int:
+def island_perimeter(grid) -> int:
     """Computes the perimeter of the island within the grid.
 
     Args:
