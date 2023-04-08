@@ -39,7 +39,6 @@ def isWinner(x, nums):
             benCount += 1
         else:
             mariaCount += 1
-        print(f"Ben tally: {benCount}\tMaria tally{mariaCount}")
     if benCount > mariaCount:
         return 'Ben'
     elif benCount < mariaCount:
