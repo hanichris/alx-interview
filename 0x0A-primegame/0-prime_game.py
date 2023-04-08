@@ -9,6 +9,8 @@ def primeNumbers(num):
     Args:
         nums (int): upper limit to find prime numbers to.
     """
+    if num <= 1:
+        return []
     primes = [x for x in range(num + 1)]
     primes[0] = primes[1] = 0
     p = 2
