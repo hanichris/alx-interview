@@ -39,7 +39,7 @@ def isWinner(x, nums):
 
     for i in range(x):
         choices = primeNumbers(nums[i])
-        if len(choices) % 2 == 0:
+        if len(choices) == 0 or len(choices) % 2 == 0:
             benCount += 1
         else:
             mariaCount += 1
