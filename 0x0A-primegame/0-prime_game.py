@@ -33,7 +33,7 @@ def isWinner(x, nums):
     Return:
         string: name of individual who won (either Ben or Maria).
     """
-    if nums is None or nums == []:
+    if x == 0 or nums == []:
         return None
     benCount = mariaCount = 0
 
