@@ -12,14 +12,14 @@ def primeNumbers(num):
     if num <= 1:
         return []
     primes = [x for x in range(num + 1)]
-    primes[0] = primes[1] = 0
+    primes[1] = 0
     p = 2
-    while p * p <= num + 1:
+    while p * p <= num:
         if primes[p] != 0:
-            for num in range(p*2, num + 1, p):
-                primes[num] = 0
+            for j in range(p*2, num + 1, p):
+                primes[j] = 0
         p += 1
-    return list(filter(lambda x: x != 0, primes))
+    return primes
 
 
 def isWinner(x, nums):
@@ -36,9 +36,11 @@ def isWinner(x, nums):
     if x == 0 or nums == []:
         return None
     benCount = mariaCount = 0
-
+    max_number = max(nums)
+    game_choices = primeNumbers(max_number)
     for i in range(x):
-        choices = primeNumbers(nums[i])
+        round_choices = game_choices[1: nums[i] + 1]
+        choices = list(filter(lambda x: x != 0, round_choices))
         if len(choices) % 2 == 0:
             benCount += 1
         else:
